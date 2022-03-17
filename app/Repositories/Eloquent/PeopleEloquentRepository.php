@@ -1,0 +1,63 @@
+<?php
+
+namespace App\Repositories\Eloquent;
+
+use App\Models\People;
+use App\Repositories\EloquentRepository as parentAlias;
+use Illuminate\Contracts\Pagination\Paginator;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
+
+class PeopleEloquentRepository extends parentAlias
+{
+    public function __construct()
+    {
+        parent::__construct(new People());
+    }
+
+    public function get(): Collection
+    {
+        return parent::get();
+    }
+
+    public function create($data): People | Model
+    {
+        return parent::create($data);
+    }
+
+    public function find($id): People | Model
+    {
+        return parent::find($id);
+    }
+
+    public function withTrashed(): Builder
+    {
+        return parent::withTrashed();
+    }
+
+    public function update($id, $data): People | Model
+    {
+        return parent::update($id, $data);
+    }
+
+    public function delete($id): People | Model
+    {
+        return parent::delete($id);
+    }
+
+    public function restore($id): People | Model
+    {
+        return parent::restore($id);
+    }
+
+    public function forceDelete($id): People | Model
+    {
+        return parent::forceDelete($id);
+    }
+
+    public function paginate($perPage = null, $columns = ['*'], $pageName = 'page', $page = null): Paginator
+    {
+        return parent::paginate($perPage, $columns, $pageName, $page);
+    }
+}
